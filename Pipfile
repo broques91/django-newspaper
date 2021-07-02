@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+autopep8 = "*"
+django-crispy-forms = "==1.9.2"
+whitenoise = "*"
+gunicorn = "*"
+environs = {version = "==8.0.0", extras = ["django"]}
+psycopg2-binary = "==2.8.5"
+
+[dev-packages]
+flake8 = "*"
+
+[requires]
+python_version = "3.7"
