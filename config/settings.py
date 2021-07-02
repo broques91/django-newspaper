@@ -31,7 +31,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "whitenoise.runserver_nostatic",
     "django.contrib.staticfiles",
+    # 3rd party
     "crispy_forms",
+    # Local
     "accounts",
     "pages",
     "articles",
@@ -76,8 +78,6 @@ WSGI_APPLICATION = "config.wsgi.application"
 
 DATABASES = {"default": env.dj_db_url("DATABASE_URL")}
 
-# User
-AUTH_USER_MODEL = "accounts.CustomUser"
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -97,9 +97,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Login / Logout
-LOGIN_REDIRECT_URL = "home"
-LOGOUT_REDIRECT_URL = "home"
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
@@ -123,14 +120,15 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
+# AUTH
+AUTH_USER_MODEL = "accounts.CustomUser"
+
+# LOGIN
+LOGIN_REDIRECT_URL = "home"
+LOGOUT_REDIRECT_URL = "home"
+
+# CRISPY FORM
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
+# EMAIL
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-DEFAULT_FROM_EMAIL = "babass_971@live.fr"
-EMAIL_HOST = "smtp.sendgrid.net"
-EMAIL_HOST_USER = "apikey"
-EMAIL_HOST_PASSWORD = (
-    "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"
-)
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
